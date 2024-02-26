@@ -1,33 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import React, { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [showMessage, setShowMessage] = useState(false);
+
+  const toggleButton = ()=>{
+    setShowMessage(!showMessage);
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="container">
+        <img src="https://media.ambito.com/p/14c729eb6da43e2cdf66656daf6e6760/adjuntos/239/imagenes/037/818/0037818743/1200x675/smart/valorant.jpg" alt="Imagen Random" />
+        <h2>Javier Alejandro Penagos Hernandez</h2>
+        <button onClick={toggleButton}>Oprime aqui</button>
+        {showMessage  &&
+        (
+         <p>Imaginacion full xd</p>
+        )}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
